@@ -10,6 +10,10 @@ The module is fully self-contained with the data extracted from the report.
 Currently it is representing the FQDN, file MD5, and SSL certificate 
 information included with the report appendix.
 
+This is a fairly naive implementation which in the future will use 
+the upcoming intelligence framework to get a number of performance
+and operational improvements.
+
 Installation
 ------------
 
