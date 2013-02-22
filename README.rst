@@ -34,14 +34,14 @@ File Hashing
 By default Bro is configured to only MD5 hash windows executables transferred
 over HTTP.  CPU performance impacts appear to be on the order of ~10% for hashing
 all HTTP reply bodies over HTTP.  To configure your Bro installation to hash
-all HTTP reply bodies, add the following to your local.bro:
+all HTTP reply bodies, add the following to your local.bro::
 
   redef HTTP::generate_md5=/.*/;
 
 Output
 ------
 
-This module generates three notices:
+This module generates three notices::
 
 		APT1::Domain_Hit
 		APT1::Certificate_Hit
