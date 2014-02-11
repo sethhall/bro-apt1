@@ -1,18 +1,15 @@
 Bro module for Mandiant APT1 Report
 ===================================
 
-This is a script module for Bro 2.1+ that encapsulates and detects 
-activity related to the Mandiant APT1 report which can be found here:
-
-  http://intelreport.mandiant.com/
+This is a script module for Bro 2.2+ that encapsulates and detects 
+activity related to the 
+`Mandiant APT1 report <http://intelreport.mandiant.com/>`_.
 
 The module is fully self-contained with the data extracted from the report.
-Currently it is representing the FQDN, file MD5, and SSL certificate 
-information included with the report appendix.
-
-This is a fairly naive implementation which in the future will use 
-the upcoming intelligence framework to get a number of performance
-and operational improvements.
+Currently it is representing the domain names and file MD5 sums included 
+with the report appendix and the SSL certificate hashes included in a 
+follow up `blog post <https://www.mandiant.com/blog/md5-sha1/>`_ that 
+Mandiant did about the report.
 
 Installation
 ------------
@@ -26,23 +23,11 @@ Installation
 Configuration
 -------------
 
-There is no configuration necessary unless you want to expand the default 
-file hashing.
-
-File Hashing
-~~~~~~~~~~~~
-By default Bro is configured to only MD5 hash windows executables transferred
-over HTTP.  CPU performance impacts appear to be on the order of ~10% for hashing
-all HTTP reply bodies over HTTP.  To configure your Bro installation to hash
-all HTTP reply bodies, add the following to your local.bro::
-
-  redef HTTP::generate_md5=/.*/;
+There is no configuration necessary.
 
 Output
 ------
 
-This module generates three notices::
-
-		APT1::Domain_Hit
-		APT1::Certificate_Hit
-		APT1::File_MD5_Hit
+This module will result in log lines in the `intel.log` log file and
+`Intel::Notice` notices which will be logged in the `notice.log` log
+file.
